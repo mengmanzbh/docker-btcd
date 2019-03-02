@@ -6,7 +6,7 @@ ENV GOPATH=/go \
 
 RUN apk add --no-cache git glide go musl-dev \
  && mkdir -p $GOPATH/src && cd $GOPATH/src \
- && git clone https://${PROJ_DIR} ${PROJ_DIR} \
+ && go get -u ${PROJ_DIR} ${PROJ_DIR} \
  && cd $PROJ_DIR \
  && glide install \
  && go install . ./cmd/... \
